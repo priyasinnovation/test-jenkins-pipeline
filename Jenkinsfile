@@ -1,7 +1,7 @@
 node {
     def mvnHome
     stage('Checkout') {
-        git 'https://github.com/priyasinnovation/test-jenkins-pipeline.git'
+        checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/priyasinnovation/test-jenkins-pipeline.git']]])
         mvnHome = tool 'M3'
     }
     stage ('Build') {
